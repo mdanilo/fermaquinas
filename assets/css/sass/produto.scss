@@ -1,0 +1,1109 @@
+.produto {
+    main {
+        .main-image {
+            //SHARE - ONLY MOBILE
+            @media screen and (max-width:$mobile) {
+                position: relative;
+
+                #share {
+                    left: 0;
+                    z-index: 1;
+                    top: 15px;
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    position: absolute;
+                    border-radius: 50px;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $cor-principal;
+
+                    &[href="#"] {
+                        display: none;
+                    }
+
+                    svg {
+                        margin-left: -4px;
+                    }
+                }
+            }
+
+            .apresentacao {
+                #show {
+                    @media screen and (min-width:$mobile) {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        position: relative;
+                    }
+
+                    #include {
+                        display: none;
+                    }
+
+                    >.thumbs {
+                        width: 84%;
+                        cursor: crosshair;
+
+                        .slick-arrow {
+                            top: 50%;
+                        }
+
+                        @media screen and (min-width:$mobile) {
+                            transition: border 300ms;
+                            border: 1px solid #fff;
+
+                            &:hover {
+                                border-color: #dcdcdc;
+                            }
+                        }
+
+                        &:not(.slick-initialized) {
+                            li {
+                                &:not(:first-child) {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        /* width */
+                        ::-webkit-scrollbar {
+                            width: 5px;
+                            height: 5px;
+                        }
+
+                        /* Track */
+                        ::-webkit-scrollbar-track {
+                            border-radius: 10px;
+                        }
+
+                        /* Handle */
+                        ::-webkit-scrollbar-thumb {
+                            background-color: $cor-principal;
+                            border-radius: 10px;
+                        }
+
+                        @media screen and (max-width:$mobile) {
+                            width: 100%;
+
+                            .slick-arrow {
+                                top: 40%;
+                            }
+                        }
+
+                        .slick-list {
+                            li {
+                                a {
+                                    img {
+                                        width: 100%;
+                                        height: auto;
+                                    }
+
+                                    &#play_video {
+                                        cursor: crosshair;
+                                        pointer-events: none;
+
+                                        video {
+                                            @media screen and (max-width:$mobile) {
+                                                height: auto;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .slick-dots {
+                            li {
+
+                                //VIDEO
+                                &.slick-video {
+                                    background-size: 40px;
+                                    background-color: #dcdcdc;
+                                    background-repeat: no-repeat;
+                                    background-image: url(/arquivos/ico-play.png) !important;
+                                }
+                            }
+
+                            @media screen and (min-width:$mobile) {
+                                max-height: 480px;
+                                overflow-y: scroll;
+                                position: absolute;
+                                top: 0;
+                                left: -19%;
+                                padding-right: 5px;
+
+                                li {
+                                    width: 75px;
+                                    height: 75px;
+                                    cursor: pointer;
+                                    margin-bottom: 5px;
+                                    background-size: 120px;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+
+                                    button {
+                                        display: none;
+                                    }
+                                }
+                            }
+
+                            @media screen and (max-width:$mobile) {
+                                display: flex;
+                                overflow-x: auto;
+                                flex-wrap: nowrap;
+                                padding-bottom: 5px;
+                                justify-content: initial;
+                                -webkit-overflow-scrolling: touch;
+                                -ms-overflow-style: -ms-autohiding-scrollbar;
+
+                                li {
+                                    width: 75px;
+                                    height: 75px;
+                                    margin: 3px;
+                                    flex: 0 0 auto;
+                                    background-size: 120px;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+
+                                    button {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .product_info {
+            @media screen and (min-width:$mobile) {
+                padding: 10px;
+                margin: 0 -15px;
+                box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+            }
+
+            .product_rate {
+                padding: 10px 0;
+            }
+
+            .product_name {
+                .productName {
+                    font-size: 25px;
+                    color: #444444;
+                    margin-bottom: 10px;
+
+                    @media screen and (min-width:$mobile) {
+                        line-height: 30px;
+                    }
+
+                    @media screen and (max-width:$mobile) {
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            .product_ref {
+                ul {
+                    display: flex;
+                    align-items: center;
+
+                    li {
+                        display: flex;
+                        margin-right: 15px;
+                        align-items: center;
+
+                        >div {
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+
+            .product_description {
+                margin: 20px 0 30px;
+
+                .productDescription {
+                    font-size: 14px;
+                    color: #717171;
+                    letter-spacing: 0.02em;
+                }
+            }
+
+            .product_price {
+                .plugin-preco {
+                    * {
+                        font-style: normal;
+
+                        @media screen and (min-width:$mobile) {
+                            font-size: 15px;
+                        }
+
+                        @media screen and (min-width:$iphone5) and (max-width:$mobile) {
+                            font-size: 14px;
+                        }
+
+                        @media screen and (max-width:$iphone5) {
+                            font-size: 12px;
+                        }
+                    }
+
+                    .valor-de,
+                    .economia-de,
+                    .preco-a-vista {
+                        display: none !important;
+                    }
+
+                    .valor-por {
+                        font-weight: bold;
+                        color: $cor-principal;
+
+                        strong {
+                            font-size: 25px;
+                        }
+
+                        &:after {
+                            content: '/cada';
+                            font-weight: 18px;
+                        }
+                    }
+
+                    .valor-dividido {
+                        margin: 2px 0;
+                        display: block !important;
+
+                        >span {
+                            display: flex;
+
+                            >span {
+                                font-size: 0;
+                                display: flex;
+
+                                label {
+                                    margin-right: 2px;
+                                    font-weight: bold;
+
+                                    &:after,
+                                    &:before {
+                                        color: $cor-texto;
+                                        font-weight: normal;
+                                    }
+
+                                    &:after {
+                                        content: '\00a0 de';
+                                    }
+
+                                    &:before {
+                                        content: 'Em ';
+                                    }
+                                }
+                            }
+
+                            strong {
+                                display: inherit;
+                                margin-left: 2px;
+
+                                &:after {
+                                    color: #444;
+                                    font-weight: 400;
+                                    margin-left: 2px;
+                                    display: inline-block;
+                                    content: 'sem juros no cart\00e3 o de cr\00e9 dito.';
+                                }
+                            }
+                        }
+                    }
+
+                    .valor-desconto {
+                        strong {
+                            color: #f7941d;
+                            font-size: 16px;
+                            font-weight: normal;
+
+                            i {
+                                font-weight: bold;
+                                font-size: 34px;
+
+                                @media (max-width: 991px) {
+                                    font-size: 27px;
+                                }
+
+                                &:after {
+                                    content: '/cada';
+                                    font-size: 19px;
+                                }
+                            }
+                        }
+
+                        p {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            .product_payment {
+                .other-payment-method {
+                    padding: 7px;
+                    margin: 20px 0 10px;
+                    transition: box-shadow 300ms;
+
+                    @media screen and (max-width:$mobile) {
+                        margin: 10px 0;
+                    }
+
+                    &.active {
+                        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+
+                        .titulo-parcelamento {
+                            &:after {
+                                transform: rotate(-180deg);
+                            }
+                        }
+                    }
+
+                    .titulo-parcelamento {
+                        cursor: pointer;
+                        font-size: 0;
+                        display: flex;
+                        align-items: center;
+
+                        &:before {
+                            font-size: 15px;
+                            text-decoration: underline;
+                            content: 'Ver op\00e7\00f5 es de parcelamento';
+                        }
+
+                        &:after {
+                            content: '';
+                            width: 20px;
+                            height: 20px;
+                            display: block;
+                            margin-left: 10px;
+                            border-radius: 50px;
+                            transition: all 300ms;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+                            background-image: url(/arquivos/ico-small-arrow.png);
+                        }
+                    }
+
+                    ul {
+                        display: none;
+                        margin-top: 10px;
+
+                        li {
+                            &:not(:last-child) {
+                                margin-bottom: 5px;
+
+                            }
+                        }
+                    }
+                }
+
+                .see-other-payment-method-link {
+                    display: none;
+                }
+            }
+
+            .buy-in-page-quantity {
+                display: none !important;
+            }
+
+            .buy-button,
+            .buy-in-page-button {
+                &[style="display:block"] {
+                    display: flex !important;
+                }
+
+                width: 100%;
+                height: 55px;
+                line-height: 55px;
+                color: #fff;
+                font-size: 20px;
+                margin-top: 20px;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+                background-color: #F7941D;
+                box-shadow: 0px 4px 4px rgba(247, 148, 29, 0.25);
+
+                @media screen and (max-width:$mobile) {
+                    width: calc(100% + 30px);
+                    margin-left: -15px;
+                }
+
+                &:before {
+                    width: 30px;
+                    height: 30px;
+                    content: '';
+                    display: block;
+                    margin-right: 10px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-image: url(/arquivos/ico-cart.png);
+                }
+            }
+
+            /*AVISE-ME*/
+            .notifyme {
+                margin-bottom: 30px;
+
+                .notifymetitle {
+                    color: $cor-principal;
+                    text-transform: uppercase;
+                }
+
+                form {
+                    input {
+                        width: 100%;
+                        height: 40px;
+                        margin-top: 7px;
+
+                        &[type="text"] {
+                            text-indent: 20px;
+                            border: 1px solid #dcdcdc;
+                        }
+
+                        &[type="button"] {
+                            color: #fff;
+                            float: right;
+                            cursor: pointer;
+                            max-width: 180px;
+                            font-size: 20px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            background-color: $cor-cta;
+                        }
+                    }
+                }
+
+                .sku-notifyme-success {
+                    font-style: normal;
+                }
+            }
+
+            .btn {
+                font-size: 16px;
+                color: #006098;
+                font-weight: bold;
+
+                i {
+                    width: 20px;
+                    height: 20px;
+                    color: #006098;
+                    font-weight: bold;
+                    line-height: 20px;
+                    margin-right: 5px;
+                    text-align: center;
+                    border-radius: 50px;
+                    display: inline-block;
+                    background-color: white;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+                }
+
+                &[href="#"] {
+                    opacity: 0.3;
+                    pointer-events: none;
+                }
+
+                &:not(.dis-none) {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &.btn_detalhes {
+                    @media screen and (max-width:$mobile) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .box_acessorios {
+            margin: 40px 0;
+
+            h2 {
+                font-size: 30px;
+                font-weight: 300;
+                text-transform: uppercase;
+                margin: 10px 0 20px;
+
+                @media screen and (max-width:$mobile) {
+                    text-align: center;
+                }
+            }
+
+            .columns {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                >.column {
+                    @media screen and (max-width:$mobile) {
+                        width: 100%;
+                        padding: 0;
+                    }
+
+                    &.column_1 {
+                        @media screen and (min-width:$mobile) {
+                            width: 75%;
+                        }
+                    }
+
+                    &.column_2 {
+                        @media screen and (min-width:$mobile) {
+                            width: 25%;
+                            padding-left: 23px;
+                        }
+
+                        article {
+                            text-align: center;
+
+                            p {
+                                font-size: 18px;
+                                font-weight: bold;
+
+                                strong {
+                                    display: block;
+                                    color: $cor-secundaria;
+
+                                    &:empty {
+                                        font-size: 0;
+
+                                        &:after {
+                                            font-size: 18px;
+                                            content: 'Calculando...';
+                                        }
+                                    }
+                                }
+                            }
+
+                            .buy {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 70%;
+                                height: 45px;
+                                color: #fff;
+                                font-size: 14px;
+                                font-weight: 700;
+                                border-radius: 50px;
+                                margin: 30px auto;
+                                text-transform: uppercase;
+                                transition: opacity 300ms;
+                                background-color: #e0662a;
+
+                                &.disabled {
+                                    opacity: 0.7;
+                                    pointer-events: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .row_2 {
+            margin-top: 20px;
+            background-color: #F5F5F5;
+
+            .tabs {
+                padding-bottom: 20px;
+
+                .options {
+
+                    /* width */
+                    ::-webkit-scrollbar {
+                        width: 7px;
+                        height: 7px;
+                    }
+
+                    /* Track */
+                    ::-webkit-scrollbar-track {
+                        border-radius: 10px;
+                    }
+
+                    /* Handle */
+                    ::-webkit-scrollbar-thumb {
+                        background-color: $cor-principal;
+                        border-radius: 10px;
+                    }
+
+                    ul {
+                        display: flex;
+
+                        @media screen and (max-width:$mobile) {
+                            overflow-x: auto;
+                            flex-wrap: nowrap;
+                            margin-bottom: 10px;
+                            justify-content: initial;
+                            -webkit-overflow-scrolling: touch;
+                            -ms-overflow-style: -ms-autohiding-scrollbar;
+                        }
+
+                        li {
+                            @media screen and (max-width:$mobile) {
+                                flex: 0 0 auto;
+                            }
+
+                            a {
+                                height: 50px;
+                                padding: 0 20px;
+                                font-size: 20px;
+                                line-height: 50px;
+                                font-weight: bold;
+
+                                &.active {
+                                    background-color: #fff;
+                                }
+
+                                &:not(.dis-none) {
+                                    display: inline-block;
+                                }
+
+                                @media screen and (max-width:$mobile) {
+                                    padding: 0 15px;
+                                    font-size: 12px;
+
+                                    &[data-step="1"] {
+                                        font-size: 0;
+
+                                        &:after {
+                                            font-size: 12px;
+                                            content: 'Detalhes';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .content {
+                    padding: 30px;
+                    background-color: #fff;
+
+                    @media screen and (max-width:$mobile) {
+                        padding: 15px;
+                    }
+
+                    .step {
+                        display: none;
+
+                        &.active {
+                            display: block;
+                        }
+
+                        &.step_2 {
+                            .list {
+                                display: flex;
+                                flex-wrap: wrap;
+                                margin: 0 -10px;
+
+                                .box {
+                                    height: 280px;
+                                    width: calc(100% / 3);
+
+                                    @media screen and (min-width:$mobile) {
+                                        padding: 0 10px;
+                                    }
+
+                                    @media screen and (max-width:$mobile) {
+                                        width: 100%;
+                                        height: auto;
+                                    }
+
+                                    .title {
+                                        display: flex;
+                                        align-items: center;
+                                        font-size: 20px;
+                                        font-weight: bold;
+                                        color: $cor-principal;
+
+                                        img {
+                                            margin-right: 10px;
+                                        }
+                                    }
+
+                                    table {
+                                        width: 100%;
+                                        height: auto;
+
+                                        tr {
+                                            padding: 5px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: space-between;
+
+                                            th {
+                                                text-align: left;
+                                            }
+
+                                            &:nth-child(2n+0) {
+                                                background-color: #F3F3F3;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.step_3 {
+                            #resenha {
+
+                                h4,
+                                h5,
+                                #opcoes-avalie>p strong {
+                                    font-size: 18px;
+                                    font-weight: 300;
+                                    margin-bottom: 20px;
+                                }
+
+                                #lnkPubliqueResenha {
+                                    width: 220px;
+                                    height: 40px;
+                                    line-height: 40px;
+                                    display: block;
+                                    padding: 0 10px;
+                                    text-align: center;
+                                    background-color: $cor-principal;
+                                    color: $branco;
+                                }
+
+                                #userReviewShowAllComments {
+                                    margin: 20px 0;
+                                    display: block;
+                                    text-decoration: underline;
+                                    color: black;
+                                }
+
+                                #opcoes-avalie {
+                                    margin-top: 20px;
+
+                                    p {
+                                        margin-bottom: 15px;
+                                    }
+
+                                    input {
+                                        float: left;
+                                        position: relative;
+                                        bottom: -2px;
+                                        margin-right: 7px;
+                                    }
+                                }
+
+                                .avaliacao {
+                                    .media {
+                                        display: flex;
+                                        align-items: center;
+                                        margin-bottom: 10px;
+
+                                        >span {
+                                            margin-right: 10px;
+                                        }
+
+                                        em {
+                                            font-size: 0;
+
+                                            strong {
+                                                font-size: 0;
+                                                width: 94px;
+                                                height: 16px;
+                                                display: block;
+                                                background-repeat: no-repeat;
+                                                background-image: url(/arquivos/stars.png);
+
+                                                &.avaliacao0 {
+                                                    background-position: 0 0;
+                                                    filter: grayscale(1);
+                                                }
+
+                                                &.avaliacao1 {
+                                                    background-position: 0 -73px;
+                                                }
+
+                                                &.avaliacao2 {
+                                                    background-position: 0 -56px;
+                                                }
+
+                                                &.avaliacao3 {
+                                                    background-position: 0 -40px;
+                                                }
+
+                                                &.avaliacao4 {
+                                                    background-position: 0 -20px;
+                                                }
+
+                                                &.avaliacao5 {
+                                                    background-position: 0 0;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .avalie-produto {
+                                        margin: 20px 0;
+
+                                        .rating-value {
+                                            a {
+                                                display: flex;
+
+                                                span {
+                                                    width: 20px;
+                                                    height: 20px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .box_compre_junto {
+            margin: 50px 0 0;
+
+            h2 {
+                font-size: 30px;
+                font-weight: 300;
+                text-transform: uppercase;
+                margin: 10px 0 20px;
+
+                @media screen and (max-width:$mobile) {
+                    text-align: center;
+                }
+            }
+
+            .columns {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .column {
+                    &.column_1 {
+                        width: 75%;
+
+                        @media screen and (max-width:$mobile) {
+                            width: 100%;
+                        }
+
+                        .pager {
+                            display: none;
+                        }
+
+                        .prateleira {
+                            width: 100%;
+
+                            @media screen and (max-width:$mobile) {
+                                padding-bottom: 15px;
+                            }
+
+                            h2 {
+                                display: none;
+                            }
+
+                            /* width */
+                            ::-webkit-scrollbar {
+                                width: 20px;
+                                height: 9px;
+                            }
+
+                            /* Track */
+                            ::-webkit-scrollbar-track {
+                                border-radius: 10px;
+                            }
+
+                            /* Handle */
+                            ::-webkit-scrollbar-thumb {
+                                background-color: $cor-principal;
+                                border-radius: 10px;
+                            }
+
+                            ul {
+                                justify-content: space-between;
+
+                                @media screen and (max-width:$mobile) {
+                                    flex-wrap: nowrap;
+                                    overflow-x: auto;
+                                    margin-right: -15px;
+                                    justify-content: initial;
+                                    -webkit-overflow-scrolling: touch;
+                                    -ms-overflow-style: -ms-autohiding-scrollbar;
+                                }
+
+                                li {
+                                    @media screen and (max-width:$mobile) {
+                                        width: 250px;
+                                        flex: 0 0 auto;
+                                        margin-right: 10px;
+                                    }
+
+                                    @media screen and (min-width:$mobile) {
+                                        width: calc(100% / 3) !important;
+
+                                        article {
+                                            &:hover {
+                                                .add {
+                                                    opacity: 1;
+                                                }
+                                            }
+
+                                            &:after {
+                                                content: '+';
+                                                position: absolute;
+                                                top: 10%;
+                                                right: -17px;
+                                                font-size: 22px;
+                                                font-weight: bold;
+                                                color: $cor-principal;
+                                            }
+                                        }
+
+                                        &:last-child {
+                                            article {
+                                                &:after {
+                                                    content: '=';
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .add {
+                                        width: 100%;
+                                        height: 40px;
+                                        line-height: 40px;
+                                        font-size: 18px;
+                                        font-weight: 400;
+                                        color: #383838;
+                                        margin-top: 10px;
+                                        text-align: center;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        transition: all 300ms;
+                                        border: 1px solid #4d4d4d;
+
+                                        @media screen and (min-width:$mobile) {
+                                            opacity: 0;
+                                        }
+
+                                        &.active {
+                                            color: #fff;
+                                            pointer-events: none;
+                                            background-color: #383838;
+
+                                            &:before {
+                                                content: '';
+                                                width: 10px;
+                                                height: 15px;
+                                                display: block;
+                                                border-right: 2px solid white;
+                                                border-bottom: 2px solid white;
+                                                transform: rotate(45deg);
+                                                margin-right: 10px;
+                                                margin-top: -4px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.column_2 {
+                        width: 25%;
+                        padding-left: 23px;
+
+                        @media screen and (max-width:$mobile) {
+                            width: 100%;
+                            padding-left: 0;
+                        }
+
+                        article {
+                            padding: 20px;
+                            text-align: center;
+                            background-color: #f5f5f5;
+
+                            p {
+                                font-size: 18px;
+                                font-weight: bold;
+
+                                strong {
+                                    display: block;
+                                    color: $cor-secundaria;
+
+                                    &:empty {
+                                        font-size: 0;
+
+                                        &:after {
+                                            font-size: 18px;
+                                            content: 'Calculando...';
+                                        }
+                                    }
+                                }
+                            }
+
+                            .buy {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 90%;
+                                height: 45px;
+                                color: #fff;
+                                font-size: 14px;
+                                font-weight: 700;
+                                border-radius: 50px;
+                                text-transform: uppercase;
+                                background-color: $cor-cta;
+                                margin: 30px auto -40px;
+                                transition: opacity 300ms;
+
+                                &.disabled {
+                                    opacity: 0.7;
+                                    pointer-events: none;
+                                }
+
+                                &[href="#"] {
+                                    font-size: 0;
+                                    pointer-events: none;
+                                    opacity: 0.6;
+
+                                    &:after {
+                                        content: 'Adicione...';
+                                        font-size: 14px;
+                                    }
+                                }
+
+                                i {
+                                    margin-right: 10px;
+
+                                    svg {
+                                        width: 25px;
+                                        height: 25px;
+
+                                        path {
+                                            stroke: #fff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

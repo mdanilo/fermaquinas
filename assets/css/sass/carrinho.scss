@@ -1,0 +1,544 @@
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(0, 6px, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(0, -8px, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(0, 8px, 0);
+    }
+}
+.cart_open{
+    overflow: hidden;
+    @media (max-width: 768px) {
+         #jvlabelWrap, .wrap_dfe{
+             display: none !important;
+         }
+    }
+}
+#cart-lateral {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #F6F6F6;
+    width: 380px;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99;
+    transition: opacity 300ms;
+
+    &.shake {
+        animation: shake 2s cubic-bezier(.36, .07, .19, .97) both;
+        transform: translate3d(0, 0, 0);
+        perspective: 1000px;
+
+        &:before {
+            opacity: 1;
+        }
+    }
+    &.active {
+        z-index: 9999999999;
+        display: block;
+        @media screen and (min-width: $mobile) {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media screen and (max-width: $mobile) {
+            bottom: 0 !important;
+
+            .header {
+                background-color: initial;
+                margin: 0 10px;
+                padding: 0;
+                color: #666;
+                font-size: 18px;
+
+                .cart-close {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &.frete_sp{
+        .columns > .column_2{
+            height: calc(90% - 290px);
+        }
+        .columns > .column_3{
+            height: 410px;
+        }
+        .columns > .column_3 .frete_bar{
+            position: relative;
+            display: block !important;
+            small{
+                position: absolute;
+                top: 22px;
+                left: 50px;
+            }
+        }
+        .columns>.column_3 .frete_bar .display_bar {
+            margin-top:28px;
+        }
+           
+    }
+    @media screen and (max-width:$mobile) {
+        width: 100%;
+        height: 100%;
+        top: initial;
+        bottom: -100%;
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+        transition: bottom 300ms;
+
+        &:before {
+            content: 'Produto Adicionado na sacola';
+            display: block;
+            position: absolute;
+            top: -50px;
+            padding: 10px;
+            background: #fff;
+            box-shadow: 0 0 16px 0 #999;
+            width: 80%;
+            left: 50%;
+            margin-left: -41%;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            opacity: 0;
+            transition: all .3s .3s;
+            text-align: center;
+        }
+    }
+
+    .columns {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        &.loading {
+            &:before {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(/arquivos/ajax-loader.gif);
+            background-repeat: no-repeat;
+            background-position: center center;
+            content: '';
+            z-index: 1;
+            background-color: #ffffff61;
+            transition: opacity 300ms;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+
+        >.column_1,
+        >.column_2,
+        >.column_3 {
+            width: 100%;
+        }
+
+        >.column_1 {
+            height: 10%;
+
+            .header {
+                height: 100%;
+                padding: 0 10px;
+                background-color: $cor-principal;
+
+                @media screen and (max-width: $iphone5) {
+                    font-size: 16px !important;
+                }
+
+                @media screen and (max-width: $mobile) {
+                    margin: 0;
+                    color: white;
+                    font-size: 18px;
+                }
+
+                ul {
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    li {
+                        &.total-items {
+                            p {
+                                color: white;
+                                font-size: 20px;
+                                font-weight: 300;
+                                text-transform: uppercase;
+                            }
+                        }
+
+                        &.close {
+                            i {
+                                width: 20px;
+                                height: 20px;
+                                line-height: 20px;
+                                border-radius: 50px;
+                                color: black;
+                                background-color: #fff;
+                                text-align: center;
+                                cursor: pointer;
+                                font-style: normal;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        >.column_2 {
+            // height: calc(90% - 260px);
+            height: calc(90% - 260px);
+            @media screen and (max-width: $mobile) {
+                // height: 50% !important; 
+                height: 55% !important; 
+            }
+            /* width */
+            ::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                border-radius: 10px;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background-color: $cor-principal;
+                border-radius: 10px;
+            }
+
+            .content {
+                margin: 10px;
+                height: 100%;
+                overflow-y: scroll;
+                position: relative;
+                padding-right: 10px;
+
+                >ul {
+                    >li {
+                        position: relative;
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding: 5px;
+                        border-radius: 4px;
+                        margin-bottom: 10px;
+                        border: 1px solid #dcdcdc;
+                        background-color: white;
+                        box-shadow: 0px 2px 0px 0px #dcdcdc;
+
+                        .column_1 {
+                            width: 30%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+
+                        .column_2 {
+                            width: 65%;
+
+                            @media screen and (min-width:$mobile) {
+                                padding-left: 10px;
+                            }
+
+                            .name {
+                                padding-right: 20px;
+
+                                p {
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    line-height: 18px;
+                                }
+                            }
+
+                            .ft {
+                                margin-top: 10px;
+
+                                ul {
+                                    li {
+                                        .box-count {
+                                            max-width: 115px;
+                                            ;
+                                            width: 100%;
+                                            height: 30px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: space-between;
+                                            border-radius: 3px;
+
+                                            .count {
+                                                width: 25%;
+                                                height: 100%;
+                                                font-size: 13px;
+                                                line-height: 30px;
+                                                text-align: center;
+                                                font-weight: bold;
+
+                                                &.count-down {
+                                                    color: $cor-principal;;
+                                                    line-height: 28px;
+                                                    border: 1px solid #dcdcdc;
+                                                }
+
+                                                &.count-up {
+                                                    color: #fff;
+                                                    background-color: $cor-principal;
+                                                }
+                                            }
+
+                                            input {
+                                                width: 40%;
+                                                height: 100%;
+                                                border: none;
+                                                text-align: center;
+                                                pointer-events: none;
+                                                background-color: #F6F6F6;
+                                            }
+                                        }
+
+                                        &.price {
+                                            margin-bottom: 10px;
+
+                                            p {
+                                                font-size: 18px;
+                                                font-weight: bold;
+                                                color: $cor-principal;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .removeUni {
+                            position: absolute;
+                            top: 5px;
+                            right: 5px;
+                            cursor: pointer;
+
+                            img {
+                                width: 15px;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        >.column_3 {
+            // height: 360px;
+            height: 210px;
+            @media screen and (max-width: $mobile) {
+                // height: 40%; 
+                height: 40%; 
+            }
+            
+            .clear{
+                font-weight: bold;
+                color: #f7941d;
+                border: 1px solid #f7941d;
+                padding: 2px 21px;
+                border-radius: 20px;
+                font-size: 12px;
+                margin: 0 auto;
+                &.actived{
+                    
+                display: block !important;
+                }
+            }
+            .frete{ 
+                &.active_b2{
+                    .box-1{
+                        display: none;
+                    }
+                    .box-2{
+                        display: block;
+                        .value-frete{
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .box-1{
+                    a{
+                        display: none !important;
+                    }
+                    form{
+                        width: 95px;
+                        input[type="text"]{
+                            display: inline-block;
+                            width: 67px;
+                            border: 1px solid #f7941d;
+                            padding: 1px 2px;
+                        }
+                        input[type="submit"]{
+                            display: inline-block;
+                            background: #f7941d;
+                            color: #fff;
+                            padding: 2px 6px;
+                        }
+                    }
+                }
+                .box-2{
+                    display: none;
+                }
+            }
+
+            .footer {
+                margin-top: 15px;
+                padding: 10px 20px 10px 20px;
+                background-color: white;
+
+                ul {
+                    margin: 10px 0;
+
+                    @media screen and (max-width:$iphone5) {
+                        margin-top: 0;
+                    }
+
+                    li {
+                        margin-bottom: 10px;
+                        
+                        &:not(.dis-none) {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+
+                        &.entrega {
+                            a {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        span {
+                            &.total-price {
+                                color: black;
+                                font-size: 16px;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .frete_bar{
+                display: none !important; // remover
+                margin-top: 14px;
+                text-align: center;
+                .display_bar{
+                    width: 85%;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 7px;
+                    background: #C4C4C4;
+                    border-radius: 10px;
+                    margin-top: 20px;
+                    border-radius: 10px;
+                    &:after{
+                        content: '';
+                        border-radius: 10px;
+                        display: block;
+                        width: 40px;
+                        height: 25px;
+                        background-image: url('/arquivos/caminhao_frete_bar.png');
+                        position: relative;
+                        top: -15px;
+                        left: -5px;
+                    }
+                    &:before{
+                        content: '';
+                        display: block;
+                        position: relative;
+                        width: 0px;
+                        left: 0;
+                        height: 7px;
+                        background: #f7941d;
+                    }
+                }
+                span{
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 24px;
+                    color: #444444;
+                    &.dis-none{
+                        display: none !important;
+                    }
+                    &.active{
+                        display: block !important;
+                    }
+                    &:nth-child(1){
+                        display: block;
+                    }
+                    &:nth-child(2){
+                        display: none;
+                    }
+                }
+                @media screen and (max-width: $mobile) {
+                    span{
+                        font-size: 14px;
+                    }
+                    .display_bar{
+                        width: 80%;
+                    }
+                }   
+            }
+        }
+    }
+
+    .btn-finalizar {
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        border-radius: 4px;
+        display: block;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        background-color: #f7941d;
+        box-shadow: 0px 4px 8px #f7941d;
+
+        @media screen and (min-width:$mobile) {
+            margin-top: 25px;
+        }
+    }
+}

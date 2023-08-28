@@ -1,0 +1,181 @@
+@media (min-width: 1200px) {
+	.container {
+		width: 1170px;
+		max-width: 100%;
+	}
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.ui-autocomplete.ui-menu.ui-widget.ui-widget-content,
+#ajaxBusy {
+	display: none !important;
+}
+
+.desktop {
+	@media screen and (max-width: $mobile) {
+		display: none;
+	}
+}
+
+.mobile {
+	display: none;
+
+	@media screen and (max-width: $mobile) {
+		display: block !important;
+	}
+}
+
+#overlay, .overlay {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	background: rgba(130, 130, 130, 0.5);
+	position: fixed;
+	transition: opacity .5s ease;
+	visibility: hidden;
+	z-index: 11;
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.txt-center {
+	text-align: center;
+}
+
+.dis-none {
+	display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+input[type="submit"] {
+	appearance: none;
+	-o-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+input[type="submit"].disabled,
+input[value="Aguarde..."] {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ REBOOT ]*/
+*,
+*:before,
+*:after {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 14px;
+	color: $cor-texto;
+	box-sizing: border-box;
+	font-family: $font-principal;
+
+	@media screen and (min-width:$mobile) {
+        overflow-x: hidden;
+	}
+	
+	&.active {
+		overflow: hidden;
+	}
+}
+
+address {
+	font-style: normal;
+}
+
+strong {
+	font-weight: 900;
+}
+
+a {
+	color: inherit;
+	transition: color 0.5s;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		text-decoration: none;
+		color: $cor-principal;
+	}
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+/*---------------------------------------------*/
+fieldset,
+input,
+textarea,
+label {
+	display: block;
+	outline: none;
+	border: none;
+}
+
+/*---------------------------------------------*/
+button {
+	outline: none;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+iframe {
+	border: none;
+}

@@ -1,0 +1,121 @@
+.manuais {
+    h1 {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 30px;
+        margin: 30px 0 40px;
+        color: $cor-principal;
+    }
+
+    .content {
+        margin-bottom: 20px;
+
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .column {
+                @media screen and (max-width:$mobile) {
+                    width: 100%;
+
+                    &.text {
+                        margin-bottom: 15px;
+                    }
+                }
+
+                &.text {
+                    @media screen and (min-width:$mobile) {
+                        width: 40%;
+                        padding-right: 20px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+
+                &.form {
+                    @media screen and (min-width:$mobile) {
+                        width: 60%;
+                    }
+
+                    form {
+                        >p {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            input {
+                                height: 40px;
+
+                                &[type="text"] {
+                                    width: 70%;
+                                    text-indent: 10px;
+                                    border: 1px solid #dcdcdc;
+                                }
+
+                                &[type="submit"] {
+                                    width: 25%;
+                                    color: #fff;
+                                    cursor: pointer;
+                                    text-align: left;
+                                    padding-left: 10px;
+                                    background-color: $cor-secundaria;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.result {
+                    width: 100%;
+                    margin-top: 40px;
+
+                    .index {
+                        font-size: 16px;
+                        font-weight: bold;
+                        margin-bottom: 15px;
+                        color: $cor-secundaria;
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: 0 -10px;
+
+                        li {
+                            @media screen and (max-width:$mobile)  {
+                                width: 50%;
+                            }
+
+                            @media screen and (min-width:$mobile)  {
+                                width: 25%;
+                            }
+
+                            p {
+                                display: flex;
+                                max-width: 90%;
+                                align-items: center;
+                                margin: 10px auto 0;
+                                margin-bottom: 10px;
+                                padding-bottom: 10px;
+                                border-bottom: 1px solid #dcdcdc;
+
+                                @media screen and (max-width:$mobile)  {
+                                    max-width: 95%;
+                                    flex-direction: column;
+                                }
+
+                                a {
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

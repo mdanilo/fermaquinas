@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<head>
+    <vtex:template id="00-fermaquinas-head" />
+    <link href="/arquivos/sumoselect.min.css" rel="stylesheet" type="text/css"/>
+    <script defer="defer" src="/arquivos/jquery.sumoselect.min.js"></script>
+    <!-- Trustvox -->
+    <style type="text/css">
+        .trustvox-widget-rating .ts-shelf-container,
+        .trustvox-widget-rating .trustvox-shelf-container {display: inline-block;}
+        .trustvox-widget-rating:hover span.rating-click-here {text-decoration: underline;}
+        .trustvox-widget-rating span.rating-click-here {
+            top: -3px;
+            display: inline-block;
+            position: relative;
+            color: #25b3f4;
+            font-size: 12px;
+        }
+    </style>
+    <!-- -->
+</head>
+<body id="product">
+<!-- Trustvox -->
+<script type="text/javascript">
+    window._trustvox =  [];
+    _trustvox.push(['_storeId', '105151']);
+
+    _trustvox.push(['_productId',  skuJson.productId]);
+    _trustvox.push(['_productName', skuJson.name]);
+    _trustvox.push(['_productPhotos', [skuJson.skus[0].image]]);
+    _trustvox.push(['_productEans', dataLayer[0].productEans])
+
+    $(document).ready(function() {
+    $('.trustvox-fluid-jump').on('click', function(event) {
+        event.preventDefault();
+        var offset = $($(this).attr('href')).offset().top;
+        $('html, body').animate({scrollTop:offset}, 500);
+    });
+    });
+</script>
+<script async="true" type="text/javascript" src="//static.trustvox.com.br/sincero/sincero.js"></script>
+<!-- -->
+
+<div class="wrapper">
+    <vtex:template id="01-fermaquinas-header" />
+
+
+    <main class="main" id="main">
+
+        <div class="main__container layout__col1" id="main__container" itemscope="" itemtype="http://schema.org/Product">
+            
+            <!-- BreadCrumb -->
+            <div class="breadcrumb">
+                <div class="breadcrumb__container">
+                    <vtex.cmc:breadCrumb />
+                </div>
+            </div>
+            <!-- BreadCrumb -->
+            
+            <section class="product__images">
+                <div id="produto" class="images">
+                    <vtex.cmc:ProductImage zoom="on"/>
+                </div>
+                <ul class="labels" style="display:none">
+                    <li class="labels__item labels__item--discount"><vtex.cmc:discountHightLight/></li>
+                </ul>
+                <div style="display:none" class="labels-collection"><vtex.cmc:HightLight/></div>
+            </section>
+
+            <div class="product__header">
+                <h1 class="product__name" itemprop="name"><vtex.cmc:productName /></h1>
+            </div>
+
+            <section class="product__info">
+
+                <div class="product__ref">
+                    <div class="product__codref">Cod. <vtex.cmc:productReference/></div>
+                    <div class="product__brand">Marca. <vtex.cmc:brandName/></div>
+                </div>
+
+                <div class="reviews__short reviews__short--product">
+                    <!--<vtex.cmc:evaluationRate/>
+                    <span class="review__star"></span>-->
+                    <!-- Trustvox -->
+                    <div class="trustvox-rating">
+                        <a class="trustvox-fluid-jump trustvox-widget-rating" href="#trustvox-reviews" title="Pergunte e veja opiniões de quem já comprou">
+                        <div class="trustvox-shelf-container" data-trustvox-product-code-js="skuJson.productId" data-trustvox-should-skip-filter="true" data-trustvox-display-rate-schema="true"></div>
+                        <span class="rating-click-here">Clique e veja!</span>
+                        </a>
+                    </div>
+                    <!-- -->
+                </div>
+
+                <div class="product__data-prices">
+                    <button class="product__addcart">Comprar</button>
+                </div>
+                
+                <div class="product__shipping-payments">
+                    <div class="shipping">
+                        <vtex.cmc:shippingValue />
+                        <script type="text/javascript">$(document).ready( function(){ShippingValue();});</script>
+                    </div>
+                </div>
+                
+                <div class="product__related">
+                    <select class="product__related-select"></select>
+                    <div id="product-related-list" hidden=""><vtex:contentPlaceHolder id="acessorios" /></div>
+                </div>
+                
+                <div class="product__variations">
+                    <vtex.cmc:skuSelection />
+                </div>
+                
+                <div class="product__progressive-discount"></div>
+                
+                <div class="product__share">
+                    <div class="product__action product__action--description">
+                        <a href="#description">Informações sobre o produto</a>
+                    </div>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_inline_share_toolbox"></div>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59b6808ad7a912ca"></script>
+                </div>
+            </section>
+
+            <section class="product__box-price">
+
+                <div class="product__box-price-container">
+                    <div class="product__prices">
+                        <vtex.cmc:skuPrice/>
+                    </div>
+
+                    <div class="other-payments">
+                        <div class="other-payments__header">Opções de parcelamento</div>
+                        <div class="other-payments__main"><vtex.cmc:OtherPaymentMethod/></div>
+                    </div>
+
+                    <div class="buttons buttons--buy">
+                        <div class="buttons__qtys">
+                            <div class="buttons__actions">
+                                <button class="buttons__action buttons__action--less" type="button"></button>
+                                <input class="buttons__input buttons__input--buy" value="1" type="text" />
+                                <button class="buttons__action buttons__action--more" type="button"></button>
+                            </div>
+
+                            <div class="extra-msg">
+                                <span>Desconto Progressivo</span>
+                                <strong>Leve + Pague -</strong>
+                            </div>
+                        </div>
+
+                        <vtex.cmc:BuyButton/>
+                        <button class="product__addcart">adicionar ao carrinho</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="product__additional">
+            
+                <section class="showcase showcase--carousel-02 sugestion">
+                    <div class="showcase__box">
+                        <vtex:contentPlaceHolder id="sugestão" />
+                    </div>
+                </section>
+
+                <section class="showcase showcase--carousel-02">
+                    <div class="showcase__box">
+                        <vtex:contentPlaceHolder id="bought showcase" />
+                    </div>
+                </section>
+
+                <section class="product__buytobether">
+                    <vtex.cmc:BuyTogether/>
+                </section>
+
+                <section class="product__description description">
+                    <article class="specification__container">
+                        <header class="specification__title">
+                            <h1>Informações do produto</h1>
+                        </header>
+                        <div class="specification__main">
+                            <vtex.cmc:productSpecification/>
+                        </div>
+                    </article>
+                    <article class="description__container">
+                        <header class="description__title">
+                            <h1>Descrição do produto</h1>
+                        </header>
+                        <div class="description__main">
+                            <vtex.cmc:ProductDescription/>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="product__review">
+                    <!--<header class="description__title"><h1>Avaliações de clientes</h1></header>-->
+                    <!--<vtex.cmc:UserReview/>-->
+                    <!-- Trustvox -->
+                    <div class="trustvox-container">
+                      <header id="trustvox-reviews" class="description__title"><h1>Pergunte e veja opiniões de quem já comprou</h1></header>
+                      <div id="_trustvox_widget"></div>
+                    </div>
+                    <!-- -->
+                </section>
+
+                <section class="showcase showcase--carousel-02">
+                    <div class="showcase__box">
+                        <vtex:contentPlaceHolder id="bought showcase2" />
+                    </div>
+                </section>
+
+            </section>
+
+        </div>
+    </main>
+
+    <vtex:template id="00-fermaquinas-footer" />
+    <vtex:template id="00-fermaquinas-scripts" />
+
+</div>
+</body>
+</html>

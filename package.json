@@ -1,0 +1,29 @@
+{
+  "name": "litee",
+  "version": "1.0.0",
+  "description": "clinica-seven",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mdanilo@bitbucket.org/meupai/litee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/meupai/litee#readme",
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-spritesmith": "^6.8.0",
+    "grunt-stripcomments": "^0.7.2",
+    "grunt-svg-sprite": "^1.5.0",
+    "grunt-terser": "^1.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.0.4"
+  }
+}

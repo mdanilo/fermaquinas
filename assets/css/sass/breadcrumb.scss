@@ -1,0 +1,33 @@
+.bread-crumb {
+    ul {
+        display: flex;
+        font-size: 13px;
+        padding: 10px 0;
+        text-transform: lowercase;
+
+        @media screen and (max-width:$mobile) {
+            font-size: 8px;
+            padding-top: 10px;
+        }
+
+        li {
+            &:before {display: none;}
+            
+            &.last {
+                font-weight: bold;
+            }
+            
+            &:after {
+                content: '>';
+                margin: 0 13px;
+                font-size: 13px;
+            }
+
+            &:last-child {
+                &:after {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
